@@ -22,14 +22,39 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="ASCIIConsole.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ASCIIConsole.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ASCIIConsole.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_2215.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_2215.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package3_2215.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package4_2215.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2214.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2215.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ASCII.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ASCII.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ASCII.classdiagram</DependentUpon>
+    </Content>
     <Folder Include="ModelDefinition\" />
-    <Content Include="Class diagram.classdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Class diagram.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>Class diagram.classdiagram</DependentUpon>
-    </Content>
     <Content Include="ModelDefinition\ASCII Class Diagram.uml">
       <SubType>Content</SubType>
     </Content>
