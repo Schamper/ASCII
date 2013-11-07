@@ -33,7 +33,7 @@ namespace ASCIIConsole
         {
             //_Livables.TryAdd(livable, livable);
             ISoldier entity = livable.Soldier;
-            Random r = new Random(livable.GetHashCode());
+            Random r = new Random(livable.GetHashCode() * this.GetHashCode() / 2);
             entity.Location = new int[2] { 0, r.Next(0, height) };
             livable.Soldier = entity;
             DrawEntity(livable);

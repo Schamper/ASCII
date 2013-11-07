@@ -11,8 +11,6 @@ namespace ASCIIConsole
     {
         ISoldierFactory Factory { get; set; }
 
-        IDisplay Display { get; set; }
-
         ISoldier Decorate(ISoldier soldier, String decorator);
 
         String[] Decorators { get; set; }

@@ -122,14 +122,13 @@ namespace ASCIIConsole
             _SpawnerPool.Clear();
         }
 
-        public ISpawner CreateRandomSpawner(IDisplay display)
+        public ISpawner CreateRandomSpawner()
         {
             ISpawner s = new Spawner();
             Random r = new Random(s.GetHashCode());
             int rs = r.Next(_SoldierFactories.Length);
             ISoldierFactory f = CreateFactory(_SoldierFactories[rs]);
             s.Factory = f;
-            s.Display = display;
             s.Decorators = _SoldierDecorators;
             s.Delay = f.Delay + r.Next(1000);
             return s;
@@ -140,6 +139,7 @@ namespace ASCIIConsole
             _Livables.TryAdd(livable, livable);
             Thread th = new Thread(new ThreadStart(livable.Run));
             th.Start();
+            Display.AddLivable(livable);
         }
 
         public void RemoveLivable(ILivable livable)
@@ -221,7 +221,7 @@ namespace ASCIIConsole
             //Fill the spawner pool
             for (int i = 0; i < SpawnerCount; i++)
             {
-                AddSpawner(CreateRandomSpawner(Display));
+                AddSpawner(CreateRandomSpawner());
             }
 
             //Start the simulation engine

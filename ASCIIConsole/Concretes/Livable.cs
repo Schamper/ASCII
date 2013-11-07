@@ -12,14 +12,12 @@ namespace ASCIIConsole
     public class Livable : ILivable
     {
         private ISoldier _Soldier;
-        private IDisplay _Display;
         private ISimulation _Simulation;
         private int _Id;
 
-        public Livable(ISoldier soldier, IDisplay display, ISimulation simulation)
+        public Livable(ISoldier soldier, ISimulation simulation)
         {
             _Soldier = soldier;
-            _Display = display;
             _Simulation = simulation;
             _Id = this.GetHashCode();
             Debug.Print("New livable: " + _Id);
@@ -34,18 +32,6 @@ namespace ASCIIConsole
             set
             {
                 _Soldier = value;
-            }
-        }
-
-        public IDisplay Display
-        {
-            get
-            {
-                return _Display;
-            }
-            set
-            {
-                _Display = value;
             }
         }
 
@@ -81,7 +67,7 @@ namespace ASCIIConsole
         {
             //Debug.Print(this.GetHashCode() + " is now running");
             int speed = Soldier.Speed;
-            int rate = (200 / speed) + new Random().Next(500);
+            int rate = (200 / speed) + new Random(this.GetHashCode()).Next(500);
             while (_Running)
             {
                 Thread.Sleep(rate);

@@ -11,8 +11,6 @@ namespace ASCIIConsole
     {
         ISoldier Soldier { get; set; }
 
-        IDisplay Display { get; set; }
-
         ISimulation Simulation { get; set; }
 
         int Id { get; }

@@ -24,7 +24,7 @@ namespace ASCIIConsole
 
         void ClearSpawners();
 
-        ISpawner CreateRandomSpawner(IDisplay display);
+        ISpawner CreateRandomSpawner();
 
         //void AddAnimator(IAnimator animator);
 

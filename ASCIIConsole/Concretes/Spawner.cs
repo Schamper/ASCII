@@ -24,19 +24,6 @@ namespace ASCIIConsole
             }
         }
 
-        private IDisplay _Display;
-        public IDisplay Display
-        {
-            get
-            {
-                return _Display;
-            }
-            set
-            {
-                _Display = value;
-            }
-        }
-
         public ISoldier Decorate(ISoldier soldier, String decorator)
         {
             //TODO instantiate from string
@@ -93,18 +80,13 @@ namespace ASCIIConsole
         {
             while (_Running)
             {
-                Random r = new Random();
+                Random r = new Random(this.GetHashCode());
                 int rn = r.Next(_Decorators.Length);
                 ISoldier s = Factory.CreateSoldier();
                 s = Decorate(s, _Decorators[rn]);
                 ISimulation sim = Simulation.getInstance();
-                //IAnimator anim = new Animator(Display, s);
-                ILivable l = new Livable(s, Display, sim);
-                Display.AddLivable(l);
+                ILivable l = new Livable(s, sim);
                 sim.AddLivable(l);
-                //Display.AddAnimator(anim);
-                //sim.AddAnimator(anim);
-                //Display.AddEntity(s);
                 Thread.Sleep(Delay);
             }
         }
