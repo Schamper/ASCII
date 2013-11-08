@@ -15,6 +15,10 @@ namespace ASCIIConsole
 
         int Id { get; }
 
+        int[] Location { get; set; }
+
+        int Level { get; }
+
         void Die();
 
         void Run();

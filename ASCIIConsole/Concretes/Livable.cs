@@ -20,8 +20,10 @@ namespace ASCIIConsole
             _Soldier = soldier;
             _Simulation = simulation;
             _Id = this.GetHashCode();
-            Debug.Print("New livable: " + _Id);
+            //Debug.Print("New livable: " + _Id);
         }
+
+
 
         public ISoldier Soldier
         {
@@ -44,6 +46,26 @@ namespace ASCIIConsole
             set
             {
                 _Simulation = value;
+            }
+        }
+
+        public int[] Location
+        {
+            get
+            {
+                return Soldier.Location;
+            }
+            set
+            {
+                Soldier.Location = value;
+            }
+        }
+
+        public int Level
+        {
+            get
+            {
+                return Soldier.Level;
             }
         }
 

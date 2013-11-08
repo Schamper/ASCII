@@ -32,18 +32,20 @@ namespace ASCIIConsole
         public void AddLivable(ILivable livable)
         {
             //_Livables.TryAdd(livable, livable);
-            ISoldier entity = livable.Soldier;
+            //ISoldier entity = livable.Soldier;
             Random r = new Random(livable.GetHashCode() * this.GetHashCode() / 2);
-            entity.Location = new int[2] { 0, r.Next(0, height) };
-            livable.Soldier = entity;
+            //entity.Location = new int[2] { 0, r.Next(0, height) };
+            livable.Location = new int[2] { 0, r.Next(0, height) };
+            //livable.Soldier = entity;
             DrawEntity(livable);
         }
 
         public void RemoveLivable(ILivable livable)
         {
             //_AnimationQueue.Remove(livable);
-            ISoldier entity = livable.Soldier;
-            int[] loc = entity.Location;
+            //ISoldier entity = livable.Soldier;
+            //int[] loc = entity.Location;
+            int[] loc = livable.Location;
             Console.SetCursorPosition((loc[0] > 2) ? loc[0] - 3 : loc[0], loc[1]);
             Console.Write("     ");
             //_Animators.Remove(livable);
@@ -54,11 +56,12 @@ namespace ASCIIConsole
 
         public void AnimateEntity(ILivable livable)
         {
-            ISoldier entity = livable.Soldier;
-            int[] loc = entity.Location;
+            //ISoldier entity = livable.Soldier;
+            //int[] loc = entity.Location;
+            int[] loc = livable.Location;
             //Console.SetCursorPosition((loc[0] > 1) ? loc[0] - 1 : loc[0], loc[1]);
             //Console.Write("  ");
-            for (int i = loc[0] - 4; i < loc[0]; i++)
+            for (int i = loc[0] - 5; i < loc[0]; i++)
             {
                 Console.SetCursorPosition((i > 0) ? i : 0, loc[1]);
                 Console.Write(" ");
@@ -68,10 +71,11 @@ namespace ASCIIConsole
 
         public void DrawEntity(ILivable livable)
         {
-            ISoldier entity = livable.Soldier;
-            int[] loc = entity.Location;
+            //ISoldier entity = livable.Soldier;
+            //int[] loc = entity.Location;
+            int[] loc = livable.Location;
             Console.SetCursorPosition(loc[0], loc[1]);
-            Console.Write(_Models[entity.Level]);
+            Console.Write(_Models[livable.Level]);
         }
 
         public bool ReachedFort(int[] loc)

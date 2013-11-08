@@ -174,6 +174,9 @@ namespace ASCIIConsole
             {
                 //Console.SetCursorPosition(60, 0);
                 //Console.Write(_AnimationQueue.Count);
+                //int i = _AnimationQueue.Keys.Count;
+                //Random r = new Random();
+                //ILivable entity = _AnimationQueue.Keys.ToArray<ILivable>()[r.Next(i)];
                 ILivable entity = _AnimationQueue.First().Key;
                 _AnimationQueue.TryRemove(entity, out entity);
                 //_Animators.Remove(entity);
