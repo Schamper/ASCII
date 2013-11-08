@@ -72,7 +72,6 @@
     <Compile Include="Interfaces\IFortFactory.cs" />
     <Compile Include="Interfaces\ISoldier.cs" />
     <Compile Include="Interfaces\ISoldierFactory.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
